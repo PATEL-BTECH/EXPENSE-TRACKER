@@ -1,0 +1,14 @@
+# Environment Variables for Vercel Deployment
+# Copy these to Vercel's Environment Variables section
+
+# MongoDB Connection (Update with your MongoDB Atlas connection string)
+MONGODB_URI=mongodb://localhost:27017/expense-tracker
+
+# For production, replace with MongoDB Atlas:
+# MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/expense-tracker
+
+# Next.js Configuration
+NEXTAUTH_SECRET=your-secret-key-here
+NEXTAUTH_URL=https://your-vercel-app-url.vercel.app
+
+# Note: Vercel will auto-generate NEXTAUTH_URL, so you might not need to set it manually

@@ -1,0 +1,15 @@
+version: "2"
+authtoken: 2z0gCnvY3o3zniHYAMoy2sTBtLw_2td4bLMATf9gZdFYPAZG6
+log_level: info
+log_format: json
+tunnels:
+  expense-tracker:
+    addr: 3000
+    proto: http
+    subdomain: expense-tracker-demo
+    inspect: true
+    bind_tls: true
+    # Enable request/response logging
+    request_header:
+      add:
+        - "X-Ngrok-Trace: true"

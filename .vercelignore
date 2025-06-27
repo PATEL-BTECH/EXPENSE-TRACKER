@@ -1,0 +1,22 @@
+# Vercel ignore file
+node_modules
+.next
+.env.local
+.git
+*.log
+.DS_Store
+.vscode
+.idea
+coverage
+.nyc_output
+*.tgz
+*.tar.gz
+.cache
+.parcel-cache
+.vercel
+dist
+build
+out
+.turbo
+.swc
+tsconfig.tsbuildinfo
