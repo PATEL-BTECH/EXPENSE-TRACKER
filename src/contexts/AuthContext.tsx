@@ -61,34 +61,38 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const login = async (email: string, password: string): Promise<boolean> => {
     try {
-      // For demo purposes, create a mock user
-      // In a real app, this would make an API call to authenticate
-
-      // Generate a consistent user ID based on email
-      // This ensures the same user always gets the same ID across login sessions
-      const userId = getUserIdFromEmail(email);
-
-      const mockUser: User = {
-        _id: userId as any, // Consistent ObjectId based on email
-        email,
-        name: email.split('@')[0],
-        createdAt: new Date(),
-        updatedAt: new Date(),
-        preferences: {
-          currency: 'INR',
-          theme: 'system',
-          language: 'en'
+      // Get all registered users from localStorage
+      const usersRaw = localStorage.getItem('expense-tracker-users');
+      let users = usersRaw ? JSON.parse(usersRaw) : [];
+      const foundUser = users.find((u: any) => u.email === email);
+      if (foundUser) {
+        if (foundUser.password === password) {
+          // Successful login
+          const userId = getUserIdFromEmail(email);
+          const mockUser: User & { password?: string } = {
+            _id: userId as any,
+            email,
+            name: foundUser.name || email.split('@')[0],
+            createdAt: new Date(),
+            updatedAt: new Date(),
+            preferences: {
+              currency: 'INR',
+              theme: 'system',
+              language: 'en'
+            },
+            password
+          };
+          setUser(mockUser);
+          localStorage.setItem('expense-tracker-user', JSON.stringify(mockUser));
+          return true;
+        } else {
+          alert('Incorrect password for this email.');
+          return false;
         }
-      };
-
-      setUser(mockUser);
-      localStorage.setItem('expense-tracker-user', JSON.stringify(mockUser));
-      console.log('User logged in and saved to localStorage:', mockUser.email);
-
-      // Create default categories for new user
-      await createDefaultCategoriesForUser(userId);
-
-      return true;
+      } else {
+        alert('No account found with this email. Please register.');
+        return false;
+      }
     } catch (error) {
       console.error('Login error:', error);
       return false;

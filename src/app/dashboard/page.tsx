@@ -188,20 +188,20 @@ export default function DashboardPage() {
             title="Total Balance"
             value={stats?.balance || 0}
             icon={IndianRupee}
-            trend={{ value: 12, isPositive: true }}
+            trend={{ value: 0, isPositive: true }}
           />
           <StatsCard
             title="Total Income"
             value={stats?.totalIncome || 0}
             icon={TrendingUp}
-            trend={{ value: 8, isPositive: true }}
+            trend={{ value: 0, isPositive: true }}
             className="border-green-200"
           />
           <StatsCard
             title="Total Expenses"
             value={stats?.totalExpenses || 0}
-            icon={TrendingDown}
-            trend={{ value: 3, isPositive: false }}
+            icon={TrendingUp}
+            trend={{ value: 0, isPositive: true }}
             className="border-red-200"
           />
           <StatsCard

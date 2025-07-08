@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
 import ThemeToggle from '@/components/ThemeToggle';
-import LanguageToggle from '@/components/LanguageToggle';
+// import LanguageToggle from '@/components/LanguageToggle';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -89,7 +89,7 @@ export default function Navigation() {
 
           {/* User Menu */}
           <div className="flex items-center space-x-2">
-            <LanguageToggle />
+            {/* <LanguageToggle /> */}
             <ThemeToggle />
             <DropdownMenu>
               <DropdownMenuTrigger asChild>

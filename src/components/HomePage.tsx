@@ -88,6 +88,11 @@ export default function HomePage() {
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </Link>
+              <Link href="/register">
+                <Button className="bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-bounce" style={{ animationDuration: '1.5s' }}>
+                  Create Account
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

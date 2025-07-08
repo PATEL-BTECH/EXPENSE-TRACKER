@@ -78,7 +78,14 @@ export default function LoginPage() {
             </Button>
           </form>
           <div className="mt-4 text-center text-sm text-gray-600 dark:text-gray-400">
-            <p>Demo: Use any email and password to login</p>
+            <p>Don't have an account?</p>
+            <a
+              href="/register"
+              className="inline-block mt-2 px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-bounce"
+              style={{ animationDuration: '1.5s' }}
+            >
+              Create Account
+            </a>
           </div>
         </CardContent>
       </Card>
