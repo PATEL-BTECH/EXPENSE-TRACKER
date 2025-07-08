@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import ThemeToggle from '@/components/ThemeToggle';
 import LanguageToggle from '@/components/LanguageToggle';
+import { useState } from 'react';
 import {
   DollarSign,
   PieChart,
@@ -58,6 +59,9 @@ const benefits = [
 ];
 
 export default function HomePage() {
+  const [showOptions, setShowOptions] = useState(false);
+  const handleGetStarted = () => setShowOptions(true);
+  const handleClose = () => setShowOptions(false);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
@@ -82,12 +86,10 @@ export default function HomePage() {
                   Sign In
                 </Button>
               </Link>
-              <Link href="/login">
-                <Button className="bg-blue-600 hover:bg-blue-700">
-                  Get Started
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
-              </Link>
+              <Button className="bg-blue-600 hover:bg-blue-700" onClick={handleGetStarted}>
+                Get Started
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
               <Link href="/register">
                 <Button className="bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-bounce" style={{ animationDuration: '1.5s' }}>
                   Create Account
@@ -110,12 +112,10 @@ export default function HomePage() {
             modern, intuitive expense tracking application.
           </p>
           <div className="flex justify-center">
-            <Link href="/login">
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-lg px-8 py-3">
-                Start Tracking Now
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-            </Link>
+            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-lg px-8 py-3" onClick={handleGetStarted}>
+              Start Tracking Now
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </Button>
           </div>
         </div>
       </section>
@@ -179,12 +179,10 @@ export default function HomePage() {
               </div>
 
               <div className="mt-8">
-                <Link href="/login">
-                  <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
-                    Get Started Today
-                    <ArrowRight className="w-5 h-5 ml-2" />
-                  </Button>
-                </Link>
+                <Button size="lg" className="bg-blue-600 hover:bg-blue-700" onClick={handleGetStarted}>
+                  Get Started Today
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Button>
               </div>
             </div>
 
@@ -228,12 +226,38 @@ export default function HomePage() {
           <p className="text-xl text-gray-300 mb-8">
             Join thousands of users who have taken control of their finances with Budget Buddy.
           </p>
-          <Link href="/login">
-            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-lg px-8 py-3">
-              Start Your Journey Today
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
-          </Link>
+          <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-lg px-8 py-3" onClick={handleGetStarted}>
+            Start Your Journey Today
+            <ArrowRight className="w-5 h-5 ml-2" />
+          </Button>
+      {/* Modal for user options */}
+      {showOptions && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-8 max-w-sm w-full text-center relative">
+            <button
+              className="absolute top-2 right-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"
+              onClick={handleClose}
+              aria-label="Close"
+            >
+              ×
+            </button>
+            <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Welcome!</h3>
+            <p className="mb-6 text-gray-700 dark:text-gray-300">Are you a new user or already have an account?</p>
+            <div className="flex flex-col gap-4">
+              <Link href="/register" onClick={handleClose}>
+                <Button className="w-full bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold shadow-lg hover:scale-105 transition-transform">
+                  New User
+                </Button>
+              </Link>
+              <Link href="/login" onClick={handleClose}>
+                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow-lg hover:scale-105 transition-transform">
+                  Already a User
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
         </div>
       </section>
 
