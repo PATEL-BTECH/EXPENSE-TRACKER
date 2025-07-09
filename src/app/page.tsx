@@ -1,3 +1,7 @@
+
+// =============================
+// Home Page Route Code (Entry Point)
+// =============================
 'use client';
 
 import { useEffect } from 'react';

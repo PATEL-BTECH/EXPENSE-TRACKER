@@ -1,3 +1,7 @@
+
+// =============================
+// Settings Page Code
+// =============================
 'use client';
 
 import { useState, useRef } from 'react';

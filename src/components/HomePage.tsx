@@ -1,12 +1,16 @@
+// =============================
+// Home Page Component (Landing Page)
+// =============================
 'use client';
 
+// Importing required dependencies and UI components
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import ThemeToggle from '@/components/ThemeToggle';
 import LanguageToggle from '@/components/LanguageToggle';
 import { useState } from 'react';
 import {
-  DollarSign,
+  DollarSign, // Icon for features
   PieChart,
   TrendingUp,
   Shield,
@@ -16,6 +20,9 @@ import {
   CheckCircle
 } from 'lucide-react';
 
+// =============================
+// Features List for Home Page
+// =============================
 const features = [
   {
     icon: DollarSign,
@@ -49,6 +56,9 @@ const features = [
   }
 ];
 
+// =============================
+// Benefits List for Home Page
+// =============================
 const benefits = [
   'Real-time expense tracking',
   'Multiple currency support',
@@ -58,18 +68,27 @@ const benefits = [
   'Dark/Light mode support'
 ];
 
+// =============================
+// HomePage Component Definition
+// =============================
 export default function HomePage() {
+  // State to control the modal for user options (New User / Already a User)
   const [showOptions, setShowOptions] = useState(false);
+  // Handler to show the modal
   const handleGetStarted = () => setShowOptions(true);
+  // Handler to close the modal
   const handleClose = () => setShowOptions(false);
 
   return (
+    // Main Home Page Wrapper
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-      {/* Header */}
+      {/* ============================= */}
+      {/* Header Section (Logo, Nav, Theme/Language) */}
+      {/* ============================= */}
       <header className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            {/* Logo */}
+            {/* Logo Section */}
             <div className="flex items-center space-x-2">
               <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
                 <span className="text-white font-bold text-sm">💰</span>
@@ -77,7 +96,7 @@ export default function HomePage() {
               <span className="text-xl font-bold text-gray-900 dark:text-white">Budget Buddy</span>
             </div>
 
-            {/* Navigation */}
+            {/* Navigation Buttons (Sign In, Get Started, Create Account) */}
             <div className="flex items-center space-x-4">
               <LanguageToggle />
               <ThemeToggle />
@@ -100,7 +119,9 @@ export default function HomePage() {
         </div>
       </header>
 
-      {/* Hero Section */}
+      {/* ============================= */}
+      {/* Hero Section (Main Banner) */}
+      {/* ============================= */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
@@ -120,7 +141,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* ============================= */}
+      {/* Features Section (Feature Cards) */}
+      {/* ============================= */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white/50 dark:bg-gray-800/50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
@@ -156,7 +179,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Benefits Section */}
+      {/* ============================= */}
+      {/* Benefits Section (Why Choose Us) */}
+      {/* ============================= */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -187,6 +212,7 @@ export default function HomePage() {
             </div>
 
             <div className="relative">
+              {/* Example Monthly Overview Card (Decorative) */}
               <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl p-8 text-white">
                 <div className="space-y-6">
                   <div className="flex items-center justify-between">
@@ -217,7 +243,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* ============================= */}
+      {/* CTA Section (Call to Action) */}
+      {/* ============================= */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900 dark:bg-gray-950">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
@@ -230,7 +258,9 @@ export default function HomePage() {
             Start Your Journey Today
             <ArrowRight className="w-5 h-5 ml-2" />
           </Button>
-      {/* Modal for user options */}
+      {/* ============================= */}
+      {/* Modal for user options (New User / Already a User) */}
+      {/* ============================= */}
       {showOptions && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-8 max-w-sm w-full text-center relative">
@@ -261,7 +291,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Footer */}
+      {/* ============================= */}
+      {/* Footer Section */}
+      {/* ============================= */}
       <footer className="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
           <div className="flex items-center justify-center space-x-2 mb-4">
@@ -271,7 +303,7 @@ export default function HomePage() {
             <span className="text-xl font-bold text-gray-900 dark:text-white">Budget Buddy</span>
           </div>
           <p className="text-gray-600 dark:text-gray-400">
-            © 2024 Budget Buddy. Built with ❤️ using modern web technologies.
+            ©  Budget Buddy. 
           </p>
         </div>
       </footer>

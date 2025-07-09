@@ -1,3 +1,7 @@
+
+// =============================
+// Transactions Page Code
+// =============================
 'use client';
 
 import { useState, useEffect } from 'react';
