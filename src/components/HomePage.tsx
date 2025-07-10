@@ -105,10 +105,7 @@ export default function HomePage() {
                   Sign In
                 </Button>
               </Link>
-              <Button className="bg-blue-600 hover:bg-blue-700" onClick={handleGetStarted}>
-                Get Started
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
+              {/* Removed Get Started button from navbar as requested */}
               <Link href="/register">
                 <Button className="bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-bounce" style={{ animationDuration: '1.5s' }}>
                   Create Account
