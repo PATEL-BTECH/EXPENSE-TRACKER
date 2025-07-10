@@ -217,7 +217,7 @@ export default function HomePage() {
                 <div className="space-y-6">
                   <div className="flex items-center justify-between">
                     <h3 className="text-xl font-semibold">Monthly Overview</h3>
-                    <span className="text-sm opacity-75">December 2024</span>
+                    <span className="text-sm opacity-75">June 2025</span>
                   </div>
                   
                   <div className="grid grid-cols-2 gap-4">
